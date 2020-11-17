@@ -1,23 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven:3.3.3'
+    }
+
+  }
   stages {
-    stage('Fluffy Build') {
+    stage('build') {
       steps {
-        echo ' \'Placeholder\''
-        sh 'echo edited Placeholder'
-      }
-    }
-
-    stage('Fluffy Test') {
-      steps {
-        sh 'sleep 5'
-        sh 'echo success'
-      }
-    }
-
-    stage('Fluffy Deploy') {
-      steps {
-        echo 'Place holder'
+        sh 'sh \'mvn --version\''
       }
     }
 
